@@ -1,0 +1,16 @@
+*/target/
+/.idea/
+/datax-admin/.idea/
+/datax-registry/datax-registry.iml
+/datax-all.iml
+/logs/
+*-dev*
+/data/
+/build/
+/packages/
+/datax-assembly/target/
+/datax-assembly/datax-assembly.iml
+/datax-web.iml
+*.iml
+/datax-transformer/target/
+/applogs/
