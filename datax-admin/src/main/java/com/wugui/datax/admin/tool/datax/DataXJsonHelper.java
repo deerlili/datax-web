@@ -73,11 +73,16 @@ public class DataXJsonHelper {
      */
     public void initWriter(DataXJsonBuildDTO dataxJsonDto, JobDatasource writerDatasource) {
         DbType dbType = writerDatasource.getType();
-        List<String> writerColumns = dataxJsonDto.getWriterColumns();
-        dataxJsonDto.setWriterColumns(convertKeywordsColumns(dbType, writerColumns));
+        if (dbType.equals("DORIS")) {
 
-        writerPlugin = DbTypePlugin.getDbTypePlugin(dbType).getWriterPlugin();
-        buildWriter = writerPlugin.buildWriter(dataxJsonDto,writerDatasource);
+        } else {
+            List<String> writerColumns = dataxJsonDto.getWriterColumns();
+            dataxJsonDto.setWriterColumns(convertKeywordsColumns(dbType, writerColumns));
+
+            writerPlugin = DbTypePlugin.getDbTypePlugin(dbType).getWriterPlugin();
+            buildWriter = writerPlugin.buildWriter(dataxJsonDto,writerDatasource);
+        }
+
     }
 
     /**
