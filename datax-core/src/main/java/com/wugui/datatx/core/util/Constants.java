@@ -50,6 +50,7 @@ public final class Constants {
      */
     public static final String ORG_POSTGRESQL_DRIVER = "org.postgresql.Driver";
     public static final String COM_MYSQL_JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    public static final String COM_DORIS_JDBC_DRIVER = "com.mysql.jdbc.Driver";
     public static final String ORG_APACHE_HIVE_JDBC_HIVE_DRIVER = "org.apache.hive.jdbc.HiveDriver";
     public static final String COM_CLICKHOUSE_JDBC_DRIVER = "ru.yandex.clickhouse.ClickHouseDriver";
     public static final String COM_ORACLE_JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
@@ -62,6 +63,7 @@ public final class Constants {
      * database type
      */
     public static final String MYSQL = "MYSQL";
+    public static final String DORIS = "DORIS";
     public static final String POSTGRESQL = "POSTGRESQL";
     public static final String HIVE = "HIVE";
     public static final String SPARK = "SPARK";
@@ -75,6 +77,7 @@ public final class Constants {
      * jdbc url
      */
     public static final String JDBC_MYSQL = "jdbc:mysql://";
+    public static final String JDBC_DORIS = "jdbc:mysql://";
     public static final String JDBC_POSTGRESQL = "jdbc:postgresql://";
     public static final String JDBC_HIVE_2 = "jdbc:hive2://";
     public static final String JDBC_CLICKHOUSE = "jdbc:clickhouse://";
@@ -88,6 +91,7 @@ public final class Constants {
     public static final String ADDRESS = "address";
     public static final String DATABASE = "database";
     public static final String JDBC_URL = "jdbcUrl";
+    public static final String LOAD_URL = "loadUrl";
     public static final String PRINCIPAL = "principal";
     public static final String OTHER = "other";
     public static final String ORACLE_DB_CONNECT_TYPE = "connectType";

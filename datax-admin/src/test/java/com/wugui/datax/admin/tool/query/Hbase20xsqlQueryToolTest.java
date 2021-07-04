@@ -25,7 +25,7 @@ public class Hbase20xsqlQueryToolTest {
 
     private void genMysqlDemo() {
         jdbcDatasource = new JobDatasource();
-        String parameter = buildParameter("", "", DbType.HBASE20XSQL, null, "jdbc:phoenix:hadoop1,hadoop2,hadoop3:2181", null, null);
+        String parameter = buildParameter("", "", DbType.HBASE20XSQL, null, "jdbc:phoenix:hadoop1,hadoop2,hadoop3:2181", null,null);
         jdbcDatasource.setConnectionParams(parameter);
         jdbcDatasource.setDatasourceName(DbType.HBASE20XSQL.getDescp());
 

@@ -89,12 +89,13 @@ public class DriverConnectionFactory {
      * @param type      data source  type
      * @param database  data source database name
      * @param jdbcUrl   jdbcUrl
+     * @param loadUrl   loadUrl
      * @param principal principal
      * @param comments  comments
      *
      * @return datasource parameter
      */
-    public static String buildParameter(String userName, String password, DbType type, String database, String jdbcUrl, String principal, String comments) {
+    public static String buildParameter(String userName, String password, DbType type, String database, String jdbcUrl, String loadUrl, String principal, String comments) {
 
         String address = jdbcUrl;
 
@@ -107,6 +108,7 @@ public class DriverConnectionFactory {
 
         parameterMap.put(Constants.ADDRESS, address);
         parameterMap.put(Constants.JDBC_URL, jdbcUrl);
+        parameterMap.put(Constants.LOAD_URL, loadUrl);
         parameterMap.put(Constants.DATABASE, database);
         parameterMap.put(Constants.USER, AesUtil.encrypt(userName));
         parameterMap.put(Constants.PASSWORD, AesUtil.encrypt(password));

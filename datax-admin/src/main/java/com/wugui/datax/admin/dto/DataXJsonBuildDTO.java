@@ -42,6 +42,8 @@ public class DataXJsonBuildDTO implements Serializable {
 
     private RdbmsWriterDTO rdbmsWriter;
 
+    private DorisReaderDTO dorisReader;
+
     private DorisWriterDTO dorisWriter;
 
     private MongoDBReaderDTO mongoDBReader;
