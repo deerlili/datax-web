@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * data source base class
@@ -40,6 +41,8 @@ public abstract class BaseDataSource {
    * other connection parameters for the data source
    */
   private String other;
+
+  private List<String> loadUrl;
 
   /**
    * principal
@@ -115,6 +118,7 @@ public abstract class BaseDataSource {
       switch (dbTypeSelector()) {
         case CLICKHOUSE:
         case MYSQL:
+        case DORIS:
         case ORACLE:
         case POSTGRESQL:
           separator = "?";
@@ -198,5 +202,11 @@ public abstract class BaseDataSource {
     this.other = other;
   }
 
+  public List<String> getLoadUrl() {
+    return loadUrl;
+  }
 
+  public void setLoadUrl(List<String> loadUrl) {
+    this.loadUrl = loadUrl;
+  }
 }

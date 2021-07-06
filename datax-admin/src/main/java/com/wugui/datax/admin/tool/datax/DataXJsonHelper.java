@@ -41,7 +41,6 @@ public class DataXJsonHelper {
 
     private List<DataXTransformer> transformers = new ArrayList<>();
 
-
     //用于保存额外参数
     private Map<String, Object> extraParams = Maps.newHashMap();
 
@@ -73,15 +72,17 @@ public class DataXJsonHelper {
      */
     public void initWriter(DataXJsonBuildDTO dataxJsonDto, JobDatasource writerDatasource) {
         DbType dbType = writerDatasource.getType();
-        if (dbType.equals("DORIS")) {
+        List<String> writerColumns = dataxJsonDto.getWriterColumns();
+        System.out.println(dataxJsonDto);
+        dataxJsonDto.setWriterColumns(convertKeywordsColumns(dbType, writerColumns));
+        writerPlugin = DbTypePlugin.getDbTypePlugin(dbType).getWriterPlugin();
+        buildWriter = writerPlugin.buildWriter(dataxJsonDto,writerDatasource);
 
-        } else {
-            List<String> writerColumns = dataxJsonDto.getWriterColumns();
-            dataxJsonDto.setWriterColumns(convertKeywordsColumns(dbType, writerColumns));
-
-            writerPlugin = DbTypePlugin.getDbTypePlugin(dbType).getWriterPlugin();
-            buildWriter = writerPlugin.buildWriter(dataxJsonDto,writerDatasource);
-        }
+        System.out.println(dbType);
+        System.out.println(writerColumns);
+        System.out.println(dataxJsonDto);
+        System.out.println(writerPlugin);
+        System.out.println(buildWriter);
 
     }
 
@@ -130,6 +131,8 @@ public class DataXJsonHelper {
         switch (dbType) {
             case MYSQL:
                 return String.format("`%s`", column);
+            case DORIS:
+                return String.format("%s", column);
             case SQLSERVER:
                 return String.format("[%s]", column);
             case POSTGRESQL:

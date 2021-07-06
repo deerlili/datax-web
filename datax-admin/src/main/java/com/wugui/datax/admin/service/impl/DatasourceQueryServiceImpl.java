@@ -60,6 +60,13 @@ public class DatasourceQueryServiceImpl implements DatasourceQueryService {
             return new HBaseQueryTool(datasource.getType(),datasource.getConnectionParams()).getTableNames();
         } else if (DbType.MONGODB.equals(datasource.getType())) {
             return new MongoDBQueryTool(datasource.getType(),datasource.getConnectionParams()).getCollectionNames(datasourceForm.getDatabase());
+        } else if (DbType.DORIS.equals(datasource.getType())) {
+            BaseQueryTool qTool = QueryToolFactory.getByDbType(datasource.getType(),datasource.getConnectionParams());
+            if(StringUtils.isBlank(tableSchema)){
+                return qTool.getTableNames();
+            }else{
+                return qTool.getTableNames(tableSchema);
+            }
         } else {
             BaseQueryTool qTool = QueryToolFactory.getByDbType(datasource.getType(),datasource.getConnectionParams());
             if(StringUtils.isBlank(tableSchema)){

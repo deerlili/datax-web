@@ -25,7 +25,7 @@ public enum DbType {
      * 9 hbase20xsql
      */
     MYSQL(0, Constants.COM_MYSQL_JDBC_DRIVER, MySQLDataSource.class, "mysql"),
-    DORIS(0, Constants.COM_MYSQL_JDBC_DRIVER, DorisDataSource.class, "doris"),
+    DORIS(0, Constants.COM_DORIS_JDBC_DRIVER, DorisDataSource.class, "doris"),
     POSTGRESQL(1, Constants.ORG_POSTGRESQL_DRIVER, PostgreDataSource.class, "postgresql"),
     HIVE(2, Constants.ORG_APACHE_HIVE_JDBC_HIVE_DRIVER, HiveDataSource.class, "hive"),
     SPARK(3, null, SparkDataSource.class, "spark"),

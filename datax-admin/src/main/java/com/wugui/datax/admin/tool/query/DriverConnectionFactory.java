@@ -17,6 +17,7 @@ import org.springframework.util.StringUtils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.wugui.datatx.core.util.PropertyUtils.getString;
@@ -95,7 +96,7 @@ public class DriverConnectionFactory {
      *
      * @return datasource parameter
      */
-    public static String buildParameter(String userName, String password, DbType type, String database, String jdbcUrl, String loadUrl, String principal, String comments) {
+    public static String buildParameter(String userName, String password, DbType type, String database, String jdbcUrl, List<String> loadUrl, String principal, String comments) {
 
         String address = jdbcUrl;
 

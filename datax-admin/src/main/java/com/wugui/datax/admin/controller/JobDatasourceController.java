@@ -111,12 +111,12 @@ public class JobDatasourceController extends BaseController {
                                        @RequestParam(value = "password", required = false) String password,
                                        @RequestParam(value = "type", required = false) DbType type,
                                        @RequestParam(value = "jdbcUrl", required = false) String jdbcUrl,
-                                       @RequestParam(value = "loadUrl", required = false) String loadUrl,
+                                       @RequestParam(value = "loadUrl", required = false) List<String> loadUrl,
                                        @RequestParam(value = "principal", required = false) String principal,
                                        @RequestParam(value = "database", required = false) String database,
                                        @RequestParam(value = "comments", required = false) String comments,
                                        @RequestParam(value = "other", required = false) String other) {
-        String parameter = buildParameter(user, password, type, database, jdbcUrl,jdbcUrl, principal, comments);
+        String parameter = buildParameter(user, password, type, database, jdbcUrl,loadUrl, principal, comments);
         return success(jobDatasourceService.createDataSource(datasourceName, datasourceGroup, type, status, comments, parameter));
     }
 
@@ -146,11 +146,12 @@ public class JobDatasourceController extends BaseController {
                                        @RequestParam(value = "password", required = false) String password,
                                        @RequestParam(value = "type", required = false) DbType type,
                                        @RequestParam(value = "jdbcUrl", required = false) String jdbcUrl,
+                                       @RequestParam(value = "loadUrl", required = false) List<String> loadUrl,
                                        @RequestParam(value = "principal", required = false) String principal,
                                        @RequestParam(value = "database", required = false) String database,
                                        @RequestParam(value = "comments", required = false) String comments,
                                        @RequestParam(value = "other", required = false) String other) {
-        String parameter = buildParameter(user, password, type, database, jdbcUrl, jdbcUrl,principal, comments);
+        String parameter = buildParameter(user, password, type, database, jdbcUrl, loadUrl,principal, comments);
         return success(this.jobDatasourceService.updateDataSource(id, datasourceName, datasourceGroup, type, status, comments, parameter));
     }
 
@@ -179,7 +180,7 @@ public class JobDatasourceController extends BaseController {
                                      @RequestParam(value = "password", required = false) String password,
                                      @RequestParam(value = "type", required = false) DbType type,
                                      @RequestParam(value = "jdbcUrl", required = false) String jdbcUrl,
-                                     @RequestParam(value = "loadUrl", required = false) String loadUrl,
+                                     @RequestParam(value = "loadUrl", required = false) List<String> loadUrl,
                                      @RequestParam(value = "principal", required = false) String principal,
                                      @RequestParam(value = "database", required = false) String database,
                                      @RequestParam(value = "comments", required = false) String comments,
