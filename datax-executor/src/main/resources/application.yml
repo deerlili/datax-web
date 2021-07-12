@@ -25,6 +25,7 @@ datax:
 
   executor:
     jsonpath: ${JSON_PATH:.}
-    pythonpath: python
+    pythonpath: D:\01-install\Python27\python.exe
 
-  pypath: ${PYTHON_PATH:.}
+  # pypath: ${PYTHON_PATH:.}
+  pypath: D:\01-install\datax\bin\datax.py
